@@ -17,8 +17,6 @@ const HeroSlide = () => {
         const getMovies = async () => {
             const params = {page: 1}
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
-                
-                console.log(response.data.results.slice(0,5));
                 setMovieItems(response.data.results.slice(1,9));
         }
         getMovies();
@@ -57,8 +55,6 @@ const HeroSlideItem = (props) => {
     const setModalActive = async () => {
         const modal = document.querySelector(`#modal_${item.id}`);
         const videos = await tmdbApi.getVideos(category.movie, item.id);
-        console.log(videos.data.results[0])
-        console.log(modal)
         if(videos.data.results.length > 0) {
             const videoSrc = 'https://www.youtube.com/embed/' + videos.data.results[0].key;
             modal.querySelector('.modal__content > iframe').setAttribute('src', videoSrc);

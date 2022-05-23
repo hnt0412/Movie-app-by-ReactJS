@@ -36,8 +36,6 @@ const MovieGrid = (props) => {
           }
           setItem(response.data.results);
           setTotalPage(response.data.results);
-          console.log(pages)
-          console.log(totalPages)
         }
         getList();
     },[props.category, keyword]);
